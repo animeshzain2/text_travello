@@ -240,3 +240,38 @@ Transaction Received
 ### **7. Environmental Impact Tracking**
 - Routes to most efficient (lowest energy) processors
 - Sustainability metrics dashboard
+
+
+
+
+
+
+
+
+#######################################################################################################################
+Monitoring Agent inside
+
+1. Time-Series Line Chart (Latency)- Authorization Latency ($P_{99}$ and $P_{99.9}$) over Time, broken down by Processor ID
+2. KPI Cards/Gauges - Overall Authorization Rate, Total Decline Rate, Average Authorization Time ($P_{50}$), Total Transaction Volume (TPV)
+3; Decline rate vs overtime
+4. Comparative Bar Charts - Decline Rate broken down by Processor ID, Card Network, and Issuing Country
+
+
+Decision making-
+1. Dynamic Gateway Ordering (List/Bar Chart) - Current calculated Success Rate Score (SR Score) and Eligibility Status for all available Processors
+2. SR Score Convergence & Confidence Chart - Historical SR Score (Mean) and Confidence Interval (e.g., Standard Deviation) over time, segmented by Processor/BIN
+3.Action Rationale Log - Table of the IRA's historical decisions, including Transaction_ID, Chosen_Processor, and Route Reasoning Data
+
+Configuration management-
+1. Rule Heat Map / Configuration Complexity- A color-coded visualization of the number of active routing rules/weights based on dimensions (e.g., Card Type, Geography, Transaction Value)
+2. Change Impact Performance Chart- Line chart of Authorization Rate and/or Latency, overlaid with vertical markers indicating the deployment time of a new routing configuration
+3. Agent Autonomy vs. Oversight Matrix- A matrix displaying the IRA Agent Identity and its current, granular permissions (e.g., PROPOSE_CHANGE, EXECUTE_CHANGE, or READ_ONLY) across different routing rule sets
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Simulation - have to add scenario where my node should be available 
+for exp- 
+hypothetical question-
+1. will my n/w support if  3 node go down.
+2. Like  keep changing node where availability is possible.
+ 
