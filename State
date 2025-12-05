@@ -1,0 +1,34 @@
+Here is the extracted text from the image exactly as written:
+
+
+---
+
+Title:
+Intelligent Routing Optimization Agent for Payment Transaction Switches
+
+
+---
+
+Problem Statement:
+Payment systems suffer from latency and high decline rates due to inefficient routing of transactions through slow issuers or processors. Manual configuration updates are error-prone and slow, negatively impacting authorization speed and customer satisfaction. There is a need for an AI agent that continuously analyzes performance metrics, suggests optimized routing paths, and updates configurations autonomously where permitted. This reduces transaction failures, accelerates processing, and improves operational efficiency in high-volume payment environments.
+
+
+---
+
+Data Requirements (Guidance):
+Payment transaction logs including issuer and processor metrics; historical routing tables and configurations; mock or anonymized routing performance datasets; latency and decline rate statistics; permissions data for automated configuration changes.
+
+(Feel free to generate synthetic data as well from the provided access)
+
+
+---
+
+Expected Output / Demonstration of Solution:
+An autonomous routing optimization agent with multi-agent coordination for monitoring, decision-making, and configuration management; advanced UI/UX for routing visualization and control; integration APIs for payment switches; comprehensive documentation and testing covering failover and error conditions; demonstrable reduction in authorization times and decline rates via simulations.
+
+Be creative to go beyond as you solve the above needs.
+
+
+---
+
+If you want, I can also convert this into a clean formatted prompt, PDF, Word file, or final AI-project prompt for your Cascade/Windsurf.
