@@ -1,0 +1,67 @@
+
+
+1. PROJECT GOAL
+---------------
+We have built an "Intelligent Payment Routing Optimization Agent". 
+It uses a Multi-Agent System (MAS) combined with Generative AI (DeepSeek) to route payment transactions through the best possible path (Processor A vs Processor B) to minimize failures and latency.
+
+2. HIGH-LEVEL ARCHITECTURE
+--------------------------
+*   **Frontend**: HTML5, Bootstrap 5, Chart.js (for visualizations).
+*   **Backend**: Python FastAPI (high-performance API framework).
+*   **AI Engine**: LangChain connecting to TCS GenAI Lab (DeepSeek LLM).
+*   **Database**: SQLite (for simplicity) + In-memory state management.
+
+3. KEY COMPONENTS (The "Brain" of the system)
+---------------------------------------------
+A. ORCHESTRATOR (`app/services/orchestrator.py`)
+   - This is the central manager. It coordinates our 5 sub-agents:
+     1. Performance Monitor (Tracks latency/success rates).
+     2. Predictive Analytics (Forecasts traffic).
+     3. Decision Optimizer (Decides which route to take).
+     4. Alerting Agent (Watches for errors).
+     5. Config Manager (Handles rules).
+
+B. LLM SERVICE (`app/services/llm_service.py`)
+   - This is our new GenAI integration.
+   - It takes raw data (numbers) and turns it into human insights.
+   - Example: Instead of just saying "Error 503", it says "The Visa network in US-East is overloaded; rerouting to Mastercard."
+
+4. DATA FLOW EXAMPLES
+---------------------
+
+[Scenario 1: AI Strategic Insights]
+1.  **User** opens the "Predictive Analytics" page.
+2.  **Frontend** (JS) calls `GET /api/ai/insights`.
+3.  **Backend** (`main.py`) asks the `PerformanceMonitor` for current stats (latency, success rate).
+4.  **Backend** sends these stats + a prompt to **DeepSeek LLM**.
+    *   *Prompt: "Analyze these metrics: Latency 150ms, Success 95%. Give 3 insights."*
+5.  **LLM** generates text response.
+6.  **Backend** sends this text back to the browser to display.
+
+[Scenario 2: Routing a Transaction]
+1.  **User** clicks "Simulate Transaction".
+2.  **Backend** receives the request.
+3.  **Decision Optimizer** checks the rules (e.g., "If amount > $1000, use Premium Route").
+4.  **AI Layer** (Optional) validates the decision if it's complex.
+5.  **System** executes the transaction and logs the result.
+
+5. API STRUCTURE (`app/main.py`)
+--------------------------------
+We exposed several endpoints for the frontend to talk to:
+
+*   `/api/system/status`: Health check.
+*   `/api/agents/`: Get status of all agents.
+*   `/api/ai/analyze-routing`: Ask AI for the best route.
+*   `/api/ai/explain-anomaly`: Ask AI why something failed.
+*   `/api/ai/insights`: Get a bulleted summary of system health.
+
+6. FOLDER STRUCTURE EXPLAINED
+-----------------------------
+*   `app/`: All Python backend code.
+    *   `services/`: The logic (LLM, Orchestrator).
+    *   `main.py`: The entry point (API definitions).
+*   `templates/`: The HTML pages (Dashboard, Agent views).
+*   `static/`: CSS (styling) and JS (frontend logic).
+*   `config/`: Settings like API Keys and Database URLs.
+
